@@ -1,2 +1,2 @@
 #!/bin/bash
-usermod -a -G staff vincent
+chown -h vincent:staff hello
