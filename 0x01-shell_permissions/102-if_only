@@ -1,2 +1,2 @@
 #!/bin/bash
-if test id -e guillaume; then su betty
+
