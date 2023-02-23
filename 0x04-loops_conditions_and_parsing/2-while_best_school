@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# text
+count=0
+while [ $count -ne 10 ]
+do
+	echo "Best School"
+	let count=count+1
+done
