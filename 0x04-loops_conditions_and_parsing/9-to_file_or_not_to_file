@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-3 text
+# text
 FILE="school"
 if [ -e "$FILE" ]
 then
