@@ -5,6 +5,7 @@ while [ $count -ne 10 ]
 do
 	if [ $count = 8 ]
 	then
+		echo "Best School"
 		echo "Hi"
 	else
 		echo "Best School"
