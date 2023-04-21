@@ -1,8 +1,4 @@
---- comment text
-- hosts: all
-  become: true
-  vars:
-    package: flask
-  tasks:
-    -name: install flask package
-    apt: name={{ package }} state=latest
+# comment text
+package { 'flask':
+  ensure => '2.1.0'
+}
