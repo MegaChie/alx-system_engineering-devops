@@ -1,5 +1,5 @@
 --- comment text
-$file_place = '/tmp/school'
+$file_place = "/tmp/school"
 file { $file_place:
     ensure  => 'directory',
     owner   => 'www-data',
