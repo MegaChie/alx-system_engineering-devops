@@ -1,5 +1,5 @@
 --- comment text
-- host: all
+- hosts: all
   become: true
   vars:
     package: flask
