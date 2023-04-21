@@ -1,4 +1,4 @@
 # comment text
 exec { 'killer':
-  command => 'pkill -15 killmenow'
+  command => 'pkill -9 killmenow'
 }
