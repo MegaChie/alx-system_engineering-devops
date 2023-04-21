@@ -5,5 +5,5 @@ file { $file_place:
     owner   => 'www-data',
     group   => 'www-data',
     content => 'I love Puppet',
-    mode    => 0744
+    mode    => '0744'
 }
