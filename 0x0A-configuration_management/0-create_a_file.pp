@@ -1,9 +1,9 @@
 --- comment text
-$filePlace = "/tmp/school"
-file { $filePlace:
-	ensure => 'directory',
-	owner => "www-data",
-	group => "www-data",
-	content => "I love Puppet",
-	mode => 744
+$file_place = "/tmp/school"
+file { $file_place:
+    ensure => "directory",
+    owner => "www-data",
+    group => "www-data",
+    content => "I love Puppet",
+    mode => 744
 }
