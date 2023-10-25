@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# comment text
+
+service apache2 start
