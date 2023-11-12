@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Comment text
-name = $hostname
+name=$hostname
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
