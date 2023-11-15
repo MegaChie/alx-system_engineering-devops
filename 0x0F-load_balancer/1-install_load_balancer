@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Comment text
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-sed -i '/server {/a add_header X-Served-By $hostname' /etc/nginx/sites-available/default
-# "add_header X-Served-By $name" /etc/nginx/nginx.conf
-service nginx start
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.4
+apt-get install haproxy=2.4.\*
+echo 'balance roundrobin' >> /etc/haproxy/haproxy.cfg
+echo 'server 174606-web-01 54.87.42.44 check' >> /etc/haproxy/haproxy.cfg
+echo 'server 174606-web-02 54.90.56.67 check' >> /etc/haproxy/haproxy.cfg
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+service haproxy restart
