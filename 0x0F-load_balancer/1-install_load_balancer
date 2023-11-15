@@ -4,7 +4,7 @@ apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.4
 apt-get install haproxy=2.4.\*
 echo 'balance roundrobin' >> /etc/haproxy/haproxy.cfg
-echo 'server 174606-web-01 54.87.42.44 check' >> /etc/haproxy/haproxy.cfg
-echo 'server 174606-web-02 54.90.56.67 check' >> /etc/haproxy/haproxy.cfg
+echo 'server 174606-web-01 54.87.42.44:80 check' >> /etc/haproxy/haproxy.cfg
+echo 'server 174606-web-02 54.90.56.67:80 check' >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 service haproxy restart
