@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 # Comment text
+original='defaults'
+replace='defaults\n\tbalance roundrobin\n\tserver 174606-web-01 54.87.42.44:80 check\n\tserver 174606-web-02 54.90.56.67:80 check'
 apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.8
 apt-get install haproxy=2.8.\*
-echo '\tbalance roundrobin' >> /etc/haproxy/haproxy.cfg
-echo '\tserver 174606-web-01 54.87.42.44:80 check' >> /etc/haproxy/haproxy.cfg
-echo '\tserver 174606-web-02 54.90.56.67:80 check' >> /etc/haproxy/haproxy.cfg
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-service haproxy restart
+apt update
+apt install haproxy
+sed -i "s~$original~$replace~g" /etc/haproxy/haproxy.cfg
+# echo $line >> /etc/haproxy/haproxy.cfg
+# echo $line2 >> /etc/haproxy/haproxy.cfg
+# echo $line3 >> /etc/haproxy/haproxy.cfg
+echo 'ENABLED=1' >> /etc/default/haproxy
+service haproxy start
