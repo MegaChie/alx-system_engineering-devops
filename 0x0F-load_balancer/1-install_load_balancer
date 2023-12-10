@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 # Comment text
-original='defaults'
-replace='defaults\n\tbalance roundrobin\n\tserver 174606-web-01 54.87.42.44:80 check\n\tserver 174606-web-02 54.90.56.67:80 check'
+text1="frontend myfrontend"
+repl1="frontend myfrontend\n\tbind 127.0.0.1:80\n\tdefault_backend myservers"
+text2="backend myservers"
+repl2="backend myservers\n\tbalance roundrobin\n\tserver 174606-web-01 54.87.42.44\n\tserver 174606-web-02 54.90.56.67"
 apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.8
 apt-get install haproxy=2.8.\*
 apt update
 apt install haproxy
-sed -i "s~$original~$replace~g" /etc/haproxy/haproxy.cfg
-# echo $line >> /etc/haproxy/haproxy.cfg
-# echo $line2 >> /etc/haproxy/haproxy.cfg
-# echo $line3 >> /etc/haproxy/haproxy.cfg
+echo "frontend myfrontend" >> /etc/haproxy/haproxy.cfg
+echo "backend myservers" >> /etc/haproxy/haproxy.cfg
+sed -i "s~$text1~$repl1~g" /etc/haproxy/haproxy.cfg
+sed -i "s~$text2~$repl2~g" /etc/haproxy/haproxy.cfg
 echo 'ENABLED=1' >> /etc/default/haproxy
 service haproxy start
