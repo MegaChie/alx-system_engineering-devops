@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Comment text
-su -l $1
+su -l "$1"
 whoiam
