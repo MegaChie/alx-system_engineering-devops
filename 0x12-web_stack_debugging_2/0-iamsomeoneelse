@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Comment text
-su - "$1"
+su "$1"
 whoami
-sudo -i
+exit
