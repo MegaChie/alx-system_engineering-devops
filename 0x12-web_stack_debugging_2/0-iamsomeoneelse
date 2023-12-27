@@ -2,4 +2,4 @@
 # Comment text
 su - "$1"
 whoami
-su -
+sudo su -
