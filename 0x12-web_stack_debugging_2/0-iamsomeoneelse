@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Comment text
-su -c  "$1"
+su -p --pty "$1"
 whoami
-exit
