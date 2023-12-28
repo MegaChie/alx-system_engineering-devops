@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Comment text
-su --pty "$1"
+su -lc "$1"
 whoami
