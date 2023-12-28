@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Comment text
--u "$1"
+sudo -u "$1"
 whoami
