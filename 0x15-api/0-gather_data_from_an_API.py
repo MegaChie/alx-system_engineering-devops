@@ -21,8 +21,12 @@ def API():
         polo = marko.json()
         tasks = 0
         done = 0
-        for elem in (polo["userId"] == int(sys.argv[1])):
-            tasks = tasks + 1            
+        for elem in polo:
+            if elem["userId"] == int(sys.argv[1]):
+                tasks = tasks + 1
+            if elem["userId"] == int(sys.argv[1]) and /
+            elem["completed"] == "true":
+                done = done + 1
         print("{}/{}".format(done, tasks))
 
 
