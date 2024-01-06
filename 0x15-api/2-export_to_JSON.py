@@ -23,10 +23,10 @@ def API():
         with open(fileName, "a", encoding="utf-8") as file:
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
-                    # line = ID: [{"task": elem["title"],
-                    #     "completed": elem["completed"],
-                    #     "username": name}]
-                    file.write(json.dumps(ID: [{"task": elem["title"], "completed": elem["completed"], "username": name}]))
+                    line = [ID: [{"task": elem["title"],
+                        "completed": elem["completed"],
+                        "username": name}]]
+                    file.write(json.dumps(line)
                     file.write(",")
 
 
