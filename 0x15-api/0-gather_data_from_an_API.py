@@ -12,7 +12,7 @@ def API():
     url = oldUrl + sys.argv[1]
     with requests.get(url) as marko:
         polo = marko.json()
-        print(polo['id'])
+        print(polo['name'])
 
 
 if __name__ == "__main__":
