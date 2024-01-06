@@ -23,8 +23,8 @@ def API():
             for elem in polo:
                 items = [elem["userId"], name, elem["completed"], elem["title"]]
                 if elem["userId"] == int(sys.argv[1]):
-                items = [elem["userId"], name,
-                         elem["completed"], elem["title"]]
+                    items = [elem["userId"], name,
+                             elem["completed"], elem["title"]]
                     line = ",".join(items)
                     print(line)
 
