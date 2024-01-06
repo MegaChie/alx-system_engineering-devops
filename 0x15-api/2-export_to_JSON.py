@@ -23,12 +23,13 @@ def API():
             file.write("{")
             file.write(str(sys.argv[1]))
             file.write(": ")
+            items = []
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
-                    file.write(json.dumps({"task": elem["title"],
+                    items.append(json.dumps([{"task": elem["title"],
                         "completed": elem["completed"],
-                        "username": name}))
-            file.write("}")
+                        "username": name}]))
+            print(items)
 
 
 if __name__ == "__main__":
