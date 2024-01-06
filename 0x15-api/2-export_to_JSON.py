@@ -27,7 +27,6 @@ def API():
                         "completed": elem["completed"],
                         "username": name}]}
                     file.write(json.dumps(line)
-                    file.write(",")
 
 
 if __name__ == "__main__":
