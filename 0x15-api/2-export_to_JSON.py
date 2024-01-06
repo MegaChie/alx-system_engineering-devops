@@ -19,14 +19,14 @@ def API():
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
         fileName = sys.argv[1] + ".json"
-        file.write("{", sys.argv[1], ": ")
         with open(fileName, "a", encoding="utf-8") as file:
+            file.write("{{}: ".format(sys.argv[1]))
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
                     file.write(json.dumps([{"task": elem["title"],
                         "completed": elem["completed"], "username": name}]),
                         separators=(',',))
-        file.write("}")
+            file.write("}")
 
 
 if __name__ == "__main__":
