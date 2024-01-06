@@ -19,7 +19,7 @@ def API():
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
         fileName = sys.argv[1] + ".json"
-        file.write("{{}: ".format(sys.argv[1]))
+        file.write("{", sys.argv[1], ": ")
         with open(fileName, "a", encoding="utf-8") as file:
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
