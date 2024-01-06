@@ -13,7 +13,8 @@ def API():
     with requests.get(url) as marko:
         polo = marko.json()
         name = polo['name']
-    print(name)
+        print(type(polo))
+        print(len(polo))
 
 
 if __name__ == "__main__":
