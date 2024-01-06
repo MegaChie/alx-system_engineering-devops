@@ -14,11 +14,11 @@ def API():
     with requests.get(usersUrl) as marko:
         polo = marko.json()
         name = polo["name"]
+        print(type(polo))
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
-        # polo = marko.json().loads()
-        print(type(marko))
+        pass
 
 
 if __name__ == "__main__":
