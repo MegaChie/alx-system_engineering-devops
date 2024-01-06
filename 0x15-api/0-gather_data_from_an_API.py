@@ -17,11 +17,8 @@ def API():
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
-        polo = marko.json()
-        count = 0
-        for element in range(len(polo)):
-            if polo[element][0] is ""userId": 2":
-                print(element)
+        polo = marko.json().load()
+        print(type(polo))
 
 
 if __name__ == "__main__":
