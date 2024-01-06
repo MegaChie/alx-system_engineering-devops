@@ -19,11 +19,14 @@ def API():
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
-        count = 0
+        tasks = 0
+        done = 0
         for elem in polo:
-            if elem["userId"] == 2:
-                count = count + 1
-        print(count)
+            if elem["userId"] is sys.argv[1] and 
+            elem["completed"] == "true":
+                tasks = tasks + 1
+                done = done + 1
+        print("{}/{}".format(done, tasks))
 
 
 if __name__ == "__main__":
