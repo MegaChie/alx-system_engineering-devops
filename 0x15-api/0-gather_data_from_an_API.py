@@ -19,12 +19,9 @@ def API():
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
         count = 0
-        # for element in range(len(polo)):
-        #     if polo[element]["userId"] == sys.argv[1]:
-        #         count = count + 1
-        #         print("found")
-        # print(count)
-        print(polo[1])
+        for element in range(len(polo)):
+            if polo[element]["userId"] == sys.argv[1]:
+                print(element)
 
 
 if __name__ == "__main__":
