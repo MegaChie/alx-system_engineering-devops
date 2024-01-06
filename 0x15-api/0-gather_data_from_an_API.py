@@ -14,13 +14,14 @@ def API():
     with requests.get(usersUrl) as marko:
         polo = marko.json()
         name = polo["name"]
-        print(name)
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
         total = len(polo)
-        print(total)
+        for count in polo:
+            if polo["userId"] == sys.argv[1]:
+                print(count)
 
 
 if __name__ == "__main__":
