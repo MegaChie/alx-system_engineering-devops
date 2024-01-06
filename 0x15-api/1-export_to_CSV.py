@@ -23,9 +23,10 @@ def API():
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
                     items = [str(elem["userId"]), name,
-                             str(elem["completed"]), elem["title"], "\n"]
+                             str(elem["completed"]), elem["title"]]
                     line = "\",\"".join(items)
                     file.write(line)
+                    file.write("\n")
 
 
 if __name__ == "__main__":
