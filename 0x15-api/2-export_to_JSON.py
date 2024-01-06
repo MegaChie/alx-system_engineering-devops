@@ -31,7 +31,7 @@ def API():
                         "completed": elem["completed"],
                         "username": name})
                     )
-            file.write(",".join(items))
+            file.write(", ".join(items))
             file.write("]}")
 
 
