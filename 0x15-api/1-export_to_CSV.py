@@ -25,7 +25,9 @@ def API():
                     items = [str(elem["userId"]), name,
                              str(elem["completed"]), elem["title"]]
                     line = "\",\"".join(items)
+                    file.write("\"")
                     file.write(line)
+                    file.write("\"")
                     file.write("\n")
 
 
