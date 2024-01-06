@@ -6,7 +6,7 @@ import sys
 
 
 def API():
-    """Get user name and undone tasks list"""
+    """Build a CSV file with id, name, task, and task status"""
     # getting user name
     baseUrl = "https://jsonplaceholder.typicode.com/"
     usersUrl = baseUrl + "users/" + sys.argv[1]
@@ -18,19 +18,15 @@ def API():
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
-        tasks = 0
-        done = 0
-        toDo = []
-        for elem in polo:
-            if elem["userId"] == int(sys.argv[1]):
-                tasks = tasks + 1
-            if (elem["userId"] == int(sys.argv[1]) and
-                    elem["completed"] is True):
-                done = done + 1
-                toDo.append(elem["title"])
-    print("Employee {} is done with tasks({}/{}):".format(name, done, tasks))
-    for task in toDo:
-        print("\t", task)
+        fileName = sys.argv[1] + ".csv"
+        with open(fileName, "a",encoding=utf-8) as file:
+            for elem in polo:
+                if elem["userId"] == int(sys.argv[1]):
+                    line = elem[userId] +
+                            name +
+                            elem["completed"] +
+                            elem["title"], sep=","
+                    print(line)
 
 
 if __name__ == "__main__":
