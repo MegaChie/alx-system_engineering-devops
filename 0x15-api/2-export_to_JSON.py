@@ -29,7 +29,7 @@ def API():
                     items.append(json.dumps([{"task": elem["title"],
                         "completed": elem["completed"],
                         "username": name}]))
-            print(items)
+            print(*items)
 
 
 if __name__ == "__main__":
