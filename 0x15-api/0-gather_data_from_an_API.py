@@ -10,9 +10,9 @@ def API():
     # getting user name
     oldUrl = "https://jsonplaceholder.typicode.com/users/"
     url = oldUrl + sys.argv[1]
-    with requests.get(url) as resp:
-        data = resp.read()
-        print(data)
+    with requests.get(url) as marko:
+        polo = marko.json()
+        print(polo['id'])
 
 
 if __name__ == "__main__":
