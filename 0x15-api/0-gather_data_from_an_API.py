@@ -21,7 +21,8 @@ def API():
         count = 0
         for element in range(len(polo)):
             if polo[element]["userId"] == sys.argv[1]:
-                count = +1
+                count = count + 1
+                print("found")
         print(count)
 
 
