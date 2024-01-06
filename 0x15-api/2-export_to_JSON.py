@@ -28,6 +28,7 @@ def API():
                             "completed": elem["completed"],
                             "username": name}]}
                     file.write(json.dumps(line))
+                    file.write(",")
             file.write("}")
 
 
