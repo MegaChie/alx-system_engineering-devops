@@ -25,12 +25,13 @@ def API():
             if elem["userId"] == int(sys.argv[1]):
                 tasks = tasks + 1
             if (elem["userId"] == int(sys.argv[1]) and
-                elem["completed"] is True):
+                 elem["completed"] is True):
                 done = done + 1
                 toDo.append(elem["title"])
     print("Employee {} is done with tasks({}/{}):".format(name, done, tasks))
     for task in toDo:
         print("\t", task)
+
 
 if __name__ == "__main__":
     API()
