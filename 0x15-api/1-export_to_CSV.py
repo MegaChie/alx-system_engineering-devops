@@ -22,10 +22,8 @@ def API():
         with open(fileName, "a",encoding=utf-8) as file:
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
-                    line = elem[userId] +
-                            name +
-                            elem["completed"] +
-                            elem["title"], sep=","
+                    line = ",".join([elem["userId"], name, elem["completed"],
+                                    elem["title"]])
                     print(line)
 
 
