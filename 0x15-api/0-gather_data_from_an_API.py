@@ -14,7 +14,6 @@ def API():
     with requests.get(usersUrl) as marko:
         polo = marko.json()
         name = polo["name"]
-        print(type(polo))
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
@@ -29,8 +28,6 @@ def API():
                 elem["completed"] is True):
                 done = done + 1
                 toDo.append(elem["title"])
-        print("{}/{}".format(done, tasks))
-        print(len(toDo))
     print("Employee {} is done with tasks({}/{}):".format(name, done, tasks))
     for task in toDo:
         print("\t", task)
