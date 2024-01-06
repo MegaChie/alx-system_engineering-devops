@@ -22,9 +22,10 @@ def API():
         tasks = 0
         done = 0
         for elem in polo:
-            if elem["userId"] is sys.argv[1]:
+            if elem["userId"] == sys.argv[1]:
                 tasks = tasks + 1
-                done = done + 1
+                if elem["completed"] is "true":
+                    done = done + 1
         print("{}/{}".format(done, tasks))
 
 
