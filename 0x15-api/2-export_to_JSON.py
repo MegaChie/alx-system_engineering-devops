@@ -26,9 +26,9 @@ def API():
                     # line = ID: [{"task": elem["title"],
                     #     "completed": elem["completed"],
                     #     "username": name}]
-                    file.write(json.dumps(ID: [{"task": elem["title"],
+                    file.write(json.dumps("ID: [{"task": elem["title"],
                         "completed": elem["completed"],
-                        "username": name}]))
+                        "username": name}])")
                     file.write(",")
 
 
