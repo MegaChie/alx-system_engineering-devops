@@ -22,7 +22,7 @@ def API():
         with open(fileName, "a", encoding="utf-8") as file:
             file.write("{")
             file.write(str(sys.argv[1]))
-            file.write(": ")
+            file.write(": [")
             items = []
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
@@ -30,7 +30,7 @@ def API():
                         "completed": elem["completed"],
                         "username": name}))
             file.write(",".join(items))
-            file.write("}")
+            file.write("]}")
 
 
 if __name__ == "__main__":
