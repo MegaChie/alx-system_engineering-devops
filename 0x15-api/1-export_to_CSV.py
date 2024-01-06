@@ -25,7 +25,7 @@ def API():
                     items = [str(elem["userId"]), name,
                              str(elem["completed"]), elem["title"]]
                     line = ",".join(items)
-                    print(line)
+                    file.write(line)
 
 
 if __name__ == "__main__":
