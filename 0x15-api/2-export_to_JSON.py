@@ -6,29 +6,29 @@ import sys
 
 
 def API():
-    """Build a CSV file with id, name, task, and task status"""
+    """Build a JSON file with id, username, task, and task status"""
     # getting user name
     baseUrl = "https://jsonplaceholder.typicode.com/"
     usersUrl = baseUrl + "users/" + sys.argv[1]
     tasksUrl = baseUrl + "todos"
     with requests.get(usersUrl) as marko:
         polo = marko.json()
+        ID = polo["id"]
         name = polo["username"]
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
-        fileName = sys.argv[1] + ".csv"
+        fileName = sys.argv[1] + ".json"
         with open(fileName, "a", encoding="utf-8") as file:
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
-                    items = [str(elem["userId"]), name,
-                             str(elem["completed"]), elem["title"]]
-                    line = "\",\"".join(items)
-                    file.write("\"")
-                    file.write(line)
-                    file.write("\"")
-                    file.write("\n")
+                    file.write("{")
+                    line = {ID: [{"task": elem["title"],
+                            "completed": elem["completed"],
+                            "username": name}]}
+                    file.write(json.dumps(line))
+                    file.write("}")
 
 
 if __name__ == "__main__":
