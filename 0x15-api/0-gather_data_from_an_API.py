@@ -10,7 +10,8 @@ def API():
     # getting user name
     oldUrl = "https://jsonplaceholder.typicode.com/users/"
     url = oldUrl + sys.argv[1]
-    with requests.get(url) as data:
+    with requests.get(url) as resp:
+        data = resp.read()
         print(data)
 
 
