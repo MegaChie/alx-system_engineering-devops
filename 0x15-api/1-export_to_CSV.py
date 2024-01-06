@@ -21,7 +21,7 @@ def API():
         fileName = sys.argv[1] + ".csv"
         with open(fileName, "a",encoding="utf-8") as file:
             for elem in polo:
-                items = [elem["userId"], name, elem["completed"], elem["title"]]
+                items = [str(elem["userId"]), name, elem["completed"], elem["title"]]
                 if elem["userId"] == int(sys.argv[1]):
                     items = [elem["userId"], name,
                              elem["completed"], elem["title"]]
