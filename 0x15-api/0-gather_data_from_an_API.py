@@ -33,7 +33,7 @@ def API():
         print(len(toDo))
     print("Employee {} is done with tasks({}/{}):".format(name, done, tasks))
     for task in toDo:
-        print("\t", tasks)
+        print("\t", task)
 
 if __name__ == "__main__":
     API()
