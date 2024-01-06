@@ -20,9 +20,9 @@ def API():
         polo = marko.json()
         fileName = sys.argv[1] + ".json"
         with open(fileName, "a", encoding="utf-8") as file:
-            start = ["{", str(sys.argv[1]), ": "]
-            for string in start:
-                file.write(start)
+            file.write("{")
+            file.write(str(sys.argv[1]))
+            file.write(": ")
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
                     file.write(json.dumps([{"task": elem["title"],
