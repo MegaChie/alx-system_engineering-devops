@@ -13,7 +13,7 @@ def API():
     tasksUrl = baseUrl + "todos"
     with requests.get(usersUrl) as marko:
         polo = marko.json()
-        name = polo["name"]
+        name = polo["username"]
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
