@@ -27,7 +27,7 @@ def API():
                     line = {ID: [{"task": elem["title"],
                             "completed": elem["completed"],
                             "username": name}]}
-                    file.write(json.dumps(line), separators=",")
+                    file.write(json.dumps(line, separators=","))
 
 
 if __name__ == "__main__":
