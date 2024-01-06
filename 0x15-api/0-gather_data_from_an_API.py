@@ -20,7 +20,7 @@ def API():
         polo = marko.json()
         count = 0
         for element in range(len(polo)):
-            if polo[element]["userId"] == sys.argv[1]:
+            if polo[element][0] is ""userId": 2":
                 print(element)
 
 
