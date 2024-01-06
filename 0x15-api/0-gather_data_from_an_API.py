@@ -17,7 +17,7 @@ def API():
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
-        polo = marko.json().load()
+        polo = marko.json().loads()
         print(type(polo))
 
 
