@@ -31,7 +31,9 @@ def API():
                 toDo.append(elem["title"])
         print("{}/{}".format(done, tasks))
         print(len(toDo))
-    print("Employee {} is done with tasks({}/{}):".format(name, toDo, tasks))
+    print("Employee {} is done with tasks({}/{}):".format(name, done, tasks))
+    for task in toDo:
+        print("\t", tasks)
 
 if __name__ == "__main__":
     API()
