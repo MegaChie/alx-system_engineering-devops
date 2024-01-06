@@ -26,9 +26,11 @@ def API():
             file.write(": [")
             for elem in polo:
                 if elem["userId"] == int(sys.argv[1]):
-                    items.append(json.dumps({"task": elem["title"],
-                                 "completed": elem["completed"],
-                                        "username": name}))
+                    items.append(json.dumps(
+                        {"task": elem["title"],
+                        "completed": elem["completed"],
+                        "username": name})
+                    )
             file.write(",".join(items))
             file.write("]}")
 
