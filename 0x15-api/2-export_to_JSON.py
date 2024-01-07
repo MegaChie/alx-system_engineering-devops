@@ -9,7 +9,7 @@ def API():
     """
         Build a JSON file with:
         id, username, task, and task's status for all the users
-    """    
+    """
     # Getting user name.
     baseUrl = "https://jsonplaceholder.typicode.com/"
     usersUrl = baseUrl + "users/" + sys.argv[1]
