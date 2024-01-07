@@ -10,7 +10,7 @@ def API():
         Build a JSON file with:
         id, username, task, and task's status for all the users
     """    
-    # getting user name
+    # Getting user name.
     baseUrl = "https://jsonplaceholder.typicode.com/"
     usersUrl = baseUrl + "users/" + sys.argv[1]
     tasksUrl = baseUrl + "todos"
@@ -18,7 +18,9 @@ def API():
         polo = marko.json()
         name = polo["username"]
 
-    # Getting tasks list
+    # Getting tasks list.
+    # This will build a list of json objects
+    # and wite them to the file.
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
         fileName = sys.argv[1] + ".json"
