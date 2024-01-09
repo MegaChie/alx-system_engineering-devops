@@ -27,7 +27,7 @@ def API():
                 if user["userId"] == num:
                     undone.append(json.dumps({"username": emna(num),
                                    "task": user["title"],
-                                   "completed": str(user["completed"])}))
+                                   "completed": user.get("completed")}))
             userdic[num] = undone
     
     # Fail safe: replacing ' with " and ucapilatizing False and True
