@@ -31,6 +31,7 @@ def API():
             userdic[num] = undone
     
     # Writing file
+    filename = "todo_all_employees.json"
     with open(fileName, "a", encoding="utf-8") as file:
         file.write(json.dumps(userdic))
 
