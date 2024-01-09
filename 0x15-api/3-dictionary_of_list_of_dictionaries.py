@@ -29,7 +29,6 @@ def API():
                                    "task": user["title"],
                                    "completed": user["completed"]})
             userdic[str(num)] = undone
-            undone.clear()
     print(userdic)
 
     # Writing file
