@@ -10,6 +10,7 @@ def API():
     # getting user name
     baseUrl = "https://jsonplaceholder.typicode.com/"
     tasksUrl = baseUrl + "todos"
+
     def emna(a):
         usersUrl = baseUrl + "users/" + str(a)
         with requests.get(usersUrl) as marko:
@@ -29,7 +30,7 @@ def API():
                                    "task": user["title"],
                                    "completed": user.get("completed")})
             userdic[num] = undone
-    
+
     # Writing file
     fileName = "todo_all_employees.json"
     with open(fileName, "a", encoding="utf-8") as file:
