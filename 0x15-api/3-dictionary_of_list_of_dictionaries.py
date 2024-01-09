@@ -29,7 +29,9 @@ def API():
                     "username": empnam(polo["userId"]),
                     "task": polo["title"],
                     "completed": polo["completed"]}]))
+            undone.append(tasks)
         with open(fileName, "a", encoding="utf-8") as file:
+            file.write(undone)
 
 
 if __name__ == "__main__":
