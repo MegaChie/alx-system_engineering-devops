@@ -31,9 +31,9 @@ def API():
             userdic[num] = json.dumps(undone)
     
     # Fail safe: replacing ' with " and ucapilatizing False and True
-    # before = str(userdic)
-    # after = re.replace()
-    print(userdic)
+    before = str(userdic)
+    after = before.replace("'", '"')
+    print(after)
 
     # Writing file
     # with open(fileName, "a", encoding="utf-8") as file:
