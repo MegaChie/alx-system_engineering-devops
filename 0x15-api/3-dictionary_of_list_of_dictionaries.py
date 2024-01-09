@@ -34,7 +34,7 @@ def API():
     # Writing file
     fileName = "todo_all_employees.json"
     with open(fileName, "a", encoding="utf-8") as file:
-        json.dump(userdic, file)
+        file.write(json.dumps(userdic))
 
 
 if __name__ == "__main__":
