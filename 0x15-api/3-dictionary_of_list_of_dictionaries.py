@@ -25,10 +25,10 @@ def API():
         for user in polo:
             tasks = []
             if polo["completed"] is False:
-                tasks.append(json.dump(polo["userId"]: [{
+                tasks.append(json.dump([polo["userId"]: [{
                     "username": empnam(polo["userId"]),
                     "task": polo["title"],
-                    "completed": polo["completed"]}]))
+                    "completed": polo["completed"]}]]))
             undone.append(tasks)
         with open(fileName, "a", encoding="utf-8") as file:
             file.write(undone)
