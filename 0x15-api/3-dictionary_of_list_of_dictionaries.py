@@ -27,7 +27,7 @@ def API():
                 if user["completed"] is False and user["userId"] == num:
                     undone.append({"username": emna(num),
                                    "task": user["title"],
-                                   "completed": user["completed"]})
+                                   "completed": get(user["completed"])})
             userdic[str(num)] = undone
     print(userdic)
 
