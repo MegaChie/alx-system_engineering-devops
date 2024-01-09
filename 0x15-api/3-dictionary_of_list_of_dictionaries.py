@@ -11,7 +11,7 @@ def API():
     baseUrl = "https://jsonplaceholder.typicode.com/"
     tasksUrl = baseUrl + "todos"
     def empnam(a):
-        usersUrl = baseUrl + "users/" + a
+        usersUrl = baseUrl + "users/" + str(a)
         with requests.get(usersUrl) as marko:
             polo = marko.json()
             name = polo["username"]
