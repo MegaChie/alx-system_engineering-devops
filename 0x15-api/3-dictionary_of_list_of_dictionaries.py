@@ -32,7 +32,9 @@ def API():
     
     # Fail safe: replacing ' with " and ucapilatizing False and True
     before = str(userdic)
-    after = before.replace("'", '"') and before.replace("False", "false")
+    after = before.replace("'", '"')
+    after = after.replace("False", "false")
+    after = after.replace("True", "true")
     print(after)
 
     # Writing file
