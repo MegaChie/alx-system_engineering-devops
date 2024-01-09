@@ -25,10 +25,10 @@ def API():
             undone = []
             for user in polo:
                 if user["completed"] is False and user["userId"] == num:
-                    undone.append(json.dumps(*{"username": emna(num),
+                    undone.append(({"username": emna(num),
                                    "task": user["title"],
                                    "completed": user["completed"]}))
-            userdic[str(num)] = undone
+            userdic[str(num)] = json.dumps(undone)
 
     print(userdic)
     # Writing file
