@@ -22,10 +22,10 @@ def API():
         polo = marko.json()
         userdic = {}
         for user in polo:
-            if polo["completed"] is False:
-                userdic[polo["userId"]] = [{"task": polo["title"],
-                                            "completed": polo["completed"],
-                                            "username": empnam(polo["userId"])}]
+            if user["completed"] is False:
+                userdic[user["userId"]] = [{"task": user["title"],
+                                            "completed": user["completed"],
+                                            "username": empnam(user["userId"])}]
     print(userdic)
 
     # Writing file
