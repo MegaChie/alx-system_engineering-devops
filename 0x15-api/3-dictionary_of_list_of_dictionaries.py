@@ -30,16 +30,9 @@ def API():
                                    "completed": user.get("completed")})
             userdic[num] = undone
     
-    # Fail safe: replacing ' with " and ucapilatizing False and True
-    # before = str(userdic)
-    # after = before.replace("'", '"')
-    # after = after.replace("False", "false")
-    # after = after.replace("True", "true")
-    print(json.dumps(userdic))
-
     # Writing file
-    # with open(fileName, "a", encoding="utf-8") as file:
-    #     file.write(json.dumps(userdic))
+    with open(fileName, "a", encoding="utf-8") as file:
+        file.write(json.dumps(userdic))
 
 
 if __name__ == "__main__":
