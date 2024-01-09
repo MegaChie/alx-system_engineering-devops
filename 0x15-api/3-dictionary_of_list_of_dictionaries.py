@@ -25,21 +25,21 @@ def API():
             undone = []
             for user in polo:
                 if user["userId"] == num:
-                    undone.append(json.dumps({"username": emna(num),
+                    undone.append({"username": emna(num),
                                    "task": user["title"],
-                                   "completed": user.get("completed")}))
-            userdic[json.dumps(num)] = undone
+                                   "completed": user.get("completed")})
+            userdic[num] = undone
     
     # Fail safe: replacing ' with " and ucapilatizing False and True
     # before = str(userdic)
     # after = before.replace("'", '"')
     # after = after.replace("False", "false")
     # after = after.replace("True", "true")
-    print(userdic)
+    print(json.dumps(userdic))
 
     # Writing file
     # with open(fileName, "a", encoding="utf-8") as file:
-    #     file.write(userdic)
+    #     file.write(json.dumps(userdic))
 
 
 if __name__ == "__main__":
