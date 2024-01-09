@@ -24,13 +24,16 @@ def API():
         for num in range(1, 11):
             undone = []
             for user in polo:
-                if user["completed"] is False and user["userId"] == num:
+                if user["userId"] == num:
                     undone.append(({"username": emna(num),
                                    "task": user["title"],
                                    "completed": user["completed"]}))
-            userdic[num] = undone
+            userdic[num] = json.dumps(undone)
+    
+    # Fail safe: replacing ' with " and ucapilatizing False and True
+    before = str(userdic)
+    after = re.replace()
 
-    print(userdic)
     # Writing file
     # with open(fileName, "a", encoding="utf-8") as file:
     #     file.write(userdic)
