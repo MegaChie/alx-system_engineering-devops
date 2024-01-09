@@ -28,7 +28,7 @@ def API():
                     undone.append({"username": emna(num),
                                    "task": user["title"],
                                    "completed": user["completed"]})
-            print(f"{num}: {undone}")
+                print(f"{num}: {undone}")
             
     print(userdic)
 
