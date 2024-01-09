@@ -33,6 +33,7 @@ def API():
     # Fail safe: replacing ' with " and ucapilatizing False and True
     # before = str(userdic)
     # after = re.replace()
+    print(userdic)
 
     # Writing file
     # with open(fileName, "a", encoding="utf-8") as file:
