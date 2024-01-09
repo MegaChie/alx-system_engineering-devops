@@ -25,10 +25,10 @@ def API():
             undone = []
             for user in polo:
                 if user["userId"] == num:
-                    undone.append(str({"username": emna(num),
+                    undone.append(json.dumps({"username": emna(num),
                                    "task": user["title"],
                                    "completed": user["completed"]}))
-            userdic[num] = undone
+            userdic[num] = *undone
     
     # Fail safe: replacing ' with " and ucapilatizing False and True
     # before = str(userdic)
