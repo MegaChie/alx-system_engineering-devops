@@ -20,18 +20,17 @@ def API():
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
-        undone = []
-        fileName = "todo_all_employees.json"
+        userdic = {}
         for user in polo:
-            tasks = []
             if polo["completed"] is False:
-                tasks.append(json.dumps(polo["userId"]: [{
-                    "username": empnam(polo["userId"]),
-                    "task": polo["title"],
-                    "completed": polo["completed"]}]))
-            undone.append(tasks)
-        with open(fileName, "a", encoding="utf-8") as file:
-            file.write(undone)
+                userdic[polo["userId"]] = [{"task": polo["title"],
+                                            "completed": polo["completed"],
+                                            "username": empnam(polo["userId"])}]
+    print(userdic)
+
+    # Writing file
+    # with open(fileName, "a", encoding="utf-8") as file:
+    #     file.write(undone)
 
 
 if __name__ == "__main__":
