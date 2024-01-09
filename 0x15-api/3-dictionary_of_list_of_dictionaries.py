@@ -10,7 +10,7 @@ def API():
     # getting user name
     baseUrl = "https://jsonplaceholder.typicode.com/"
     tasksUrl = baseUrl + "todos"
-    def em(a):
+    def emna(a):
         usersUrl = baseUrl + "users/" + str(a)
         with requests.get(usersUrl) as marko:
             polo = marko.json()
@@ -21,12 +21,15 @@ def API():
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
         userdic = {}
-        for user in polo:
-            for person in user["userId"]
-                if user["completed"] is False:
-                    userdic[user["userId"]] = [{"username": em(user["userId"]),
-                                                "task": user["title"],
-                                                "completed": user["completed"],}]
+        undone = []
+        for num in range(1, 11):
+            for user in polo:
+                if user["completed"] is False and user["userId"] == num:
+                    undone.append({"username": emna(num),
+                                   "task": user["title",],
+                                   "completed": user["completed"]})
+            userdic[str(num)] = undone
+            undone.clear()
     print(userdic)
 
     # Writing file
