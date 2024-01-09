@@ -22,8 +22,8 @@ def API():
         polo = marko.json()
         userdic = {}
         for num in range(1, 11):
+            undone = []
             for user in polo:
-                undone = []
                 if user["completed"] is False and user["userId"] == num:
                     undone.append({"username": emna(num),
                                    "task": user["title"],
