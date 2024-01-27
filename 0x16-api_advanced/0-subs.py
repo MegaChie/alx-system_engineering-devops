@@ -5,14 +5,16 @@ import requests
 import sys
 
 
-def number_of_subscribers(subreddit):
+def number_of_subscribers(subreddit=sys.argv[1]):
     """
     Returns the number of subscribers for a given subreddit,
     or 0 if an invalid subreddit is given.
     """
-    subreddit = sys.argv[1]
-    url = "https://www.reddit.com/dev/api//r/{}/about".format(subreddit)
+    url = "https://www.reddit.com/r/{}/about".format(subreddit)
     # with requests.get(url) as marko:
     #     polo = marko.json.load()
     # return (polo)
     print(url)
+
+
+number_of_subscribers(subreddit)
