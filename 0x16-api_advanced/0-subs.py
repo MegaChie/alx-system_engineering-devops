@@ -12,5 +12,5 @@ def number_of_subscribers(subreddit=sys.argv[1]):
     """
     url = "https://www.reddit.com/r/{}/about".format(subreddit)
     with requests.get(url) as marko:
-        polo = marko.json()
+        polo = marko.decode()
     return (polo)
