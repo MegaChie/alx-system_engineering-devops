@@ -17,4 +17,4 @@ def number_of_subscribers(subreddit=sys.argv[1]):
     print(url)
 
 
-number_of_subscribers(subreddit)
+number_of_subscribers(sys.argv[1])
