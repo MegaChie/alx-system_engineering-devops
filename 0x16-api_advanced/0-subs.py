@@ -10,9 +10,7 @@ def number_of_subscribers(subreddit=sys.argv[1]):
     Returns the number of subscribers for a given subreddit,
     or 0 if an invalid subreddit is given.
     """
-    url = "https://www.reddit.com/r/{}/about".format(subreddit)
-    with requests.get(url,
-                      headers={"User-Agent": "My-User-Agent"},
-                      allow_redirects=False)as marko:
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    with requests.get(url)as marko:
         polo = marko.json()
-    return (url.json())
+    return (polo)
