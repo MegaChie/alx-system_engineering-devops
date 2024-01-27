@@ -11,6 +11,6 @@ def number_of_subscribers(subreddit=sys.argv[1]):
     or 0 if an invalid subreddit is given.
     """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    with requests.get(url)as marko:
+    with requests.get(url, headers={"User-Agent": "My-User-Agent"})as marko:
         polo = str(marko)
     return (polo)
