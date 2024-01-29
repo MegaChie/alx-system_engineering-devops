@@ -6,7 +6,10 @@ import sys
 
 
 def number_of_subscribers(subreddit=sys.argv[1]):
-    """Returns the number of subscribers for a given subreddit"""
+    """
+    Returns the number of subscribers for a given subreddit,
+    or 0 if an invalid subreddit is given
+    """
     # firstly, authenticate and get token
     client = "XVngJrvVrijzTzOU09512w"
     clientKey = "h6FGkpwlvaqLY1RjMkr-fn4Yu26SNQ"
@@ -18,6 +21,8 @@ def number_of_subscribers(subreddit=sys.argv[1]):
                        data=sendData) as authMarko:
         poloKey = authMarko.json()
     header["Authorization"] = "bearer {}".format(poloKey["access_token"])
+
+    # using the token to access the API
     url = "https://oauth.reddit.com/r/{}/about".format(subreddit)
     with requests.get(url, headers=header) as marko:
         if marko.status_code >= 300:
