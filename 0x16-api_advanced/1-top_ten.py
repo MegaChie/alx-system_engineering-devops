@@ -30,4 +30,4 @@ def top_ten(subreddit=sys.argv[1]):
             return None
         polo = marko.json()
     for hot in polo["data"]["children"]:
-        print(["data"]["title"])
+        print(hot["data"]["title"])
