@@ -17,7 +17,8 @@ def number_of_subscribers(subreddit=sys.argv[1]):
     header = {"User-Agent": "Mega/0.0.2"}
     sendData = {"grant_type": "client_credentials"}
     with requests.post("https://www.reddit.com/api/v1/access_token",
-                        auth=login, headers=header, data=sendData) as authMarko:
+                       auth=login, headers=header,
+                       data=sendData) as authMarko:
         poloKey = authMarko.json()
     header["Authorization"] = "bearer {}".format(poloKey["access_token"])
 
