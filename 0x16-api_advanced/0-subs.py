@@ -6,7 +6,8 @@ import sys
 
 
 def number_of_subscribers(subreddit=sys.argv[1]):
-    """Returns the number of subscribers for a given subreddit,
+    """
+    Returns the number of subscribers for a given subreddit,
     or 0 if an invalid subreddit is given.
     """
     # firstly, authenticate and get token
