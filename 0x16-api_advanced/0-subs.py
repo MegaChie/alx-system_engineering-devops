@@ -18,8 +18,6 @@ def number_of_subscribers(subreddit=sys.argv[1]):
                        data=sendData) as authMarko:
         poloKey = authMarko.json()
     header["Authorization"] = "bearer {}".format(poloKey["access_token"])
-
-    # using the token to access the API
     url = "https://oauth.reddit.com/r/{}/about".format(subreddit)
     with requests.get(url, headers=header) as marko:
         if marko.status_code >= 300:
