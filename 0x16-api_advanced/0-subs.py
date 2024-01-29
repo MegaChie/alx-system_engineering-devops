@@ -11,5 +11,8 @@ def number_of_subscribers(subreddit=sys.argv[1]):
     or 0 if an invalid subreddit is given.
     """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    polo = requests.get(url, headers={"User-Agent": "My-User-Agent"})
-    return (polo.json())
+    with requests.get(url, headers={{"User-Agent": "Mega's"}}) as mark:
+        if marko.status_code >= 300:
+            return 0
+        polo = marko.json().get("data").get("subscribers")
+    return polo
