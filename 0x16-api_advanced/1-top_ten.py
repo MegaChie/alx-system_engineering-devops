@@ -18,7 +18,7 @@ def top_ten(subreddit=sys.argv[1]):
     sendData = {"grant_type": "client_credentials"}
     wanted = {"limit": 9}
     with requests.post("https://www.reddit.com/api/v1/access_token",
-                    auth=login, headers=header, data=sendData) as authMarko:
+                        auth=login, headers=header, data=sendData) as authMarko:
         poloKey = authMarko.json()
     header["Authorization"] = "bearer {}".format(poloKey["access_token"])
 
