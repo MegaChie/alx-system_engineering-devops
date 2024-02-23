@@ -5,5 +5,5 @@ file { $filepath:
   content => 'I love Puppet',
   group   => 'www-data',
   mode    => '0744',
-  owner   => 'www-data',
+  owner   => 'www-data'
 }
