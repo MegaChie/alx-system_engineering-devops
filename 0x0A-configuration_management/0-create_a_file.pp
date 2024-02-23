@@ -1,6 +1,6 @@
 # Creates a file in /tmp.
-$filePath = '/tmp/school'
-file { $filePath:
+$filepath = '/tmp/school'
+file { $filepath:
   ensure  => 'file'
   content => 'I love Puppet'
   group   => 'www-data'
