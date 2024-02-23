@@ -1,5 +1,9 @@
 # Installs flask from pip3, it will work on your machine, but not the checker
-exec { 'flask installation':
-  command => 'pip install flask==2.0.1',
-  path    => '/usr/bin/pip'
+package { 'flask' :
+  ensure   => '2.1.0',
+  provider => 'pip3'
+}
+package { 'Werkzeug':
+  ensure   => '2.1.1',
+  provider => 'pip3',
 }
