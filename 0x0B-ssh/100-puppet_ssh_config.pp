@@ -6,7 +6,7 @@ file_line { 'Add a new identity file':
   replace => true,
 }
 
-file_line { 'Turn off passwordd auth':
+file_line { 'Turn off password authentication':
   path    => '/etc/ssh/ssh_config',
   line    => '    PasswordAuthentication no',
   replace => true,
