@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# comment text
-
+# Configures Nginx server so that /redirect_me is redirecting to another page
 new_string="^/redirect_me https://youtu.be/PF5GBT9oJDo\npermanent;"
 apt-get -y update
 apt-get -y install nginx
