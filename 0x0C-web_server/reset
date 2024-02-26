@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Remove nginx and reset the server to past state
+systemctl stop nginx
+apt-get purge nginx
+apt-get autoremove
+rm -rf /etc/nginx /var/log/nginx
+systemctl status nginx
