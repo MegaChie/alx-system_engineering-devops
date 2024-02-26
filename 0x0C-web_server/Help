@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+new='\treturn 301 https://youtu.be/PF5GBT9oJDo\n'
+lineNo=24
+FILE='./conFil'
+sed -i "${lineNo}s~.*~${new}~" $FILE
