@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# comment text
-
-service apache2 start
+# Command(s) you used to fix the issue
+service apache2 restart
