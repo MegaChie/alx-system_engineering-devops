@@ -4,3 +4,4 @@ apt purge nginx nginx-common nginx-core
 apt autoremove
 ls -l /etc/nginx/ /usr/share/nginx/
 rm -r /var/www/
+rm -r /etc/nginx/
