@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# Configures Nginx server so that /redirect_me is redirecting to another page
-new_string="^/redirect_me https://youtu.be/PF5GBT9oJDo\npermanent;"
+# Install nginx on the web server
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-available/default
+service nginx start
+echo 'Hello World!' > /var/www/html/index.html
 service nginx start
