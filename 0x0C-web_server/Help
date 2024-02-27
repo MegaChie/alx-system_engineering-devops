@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-new='\treturn 301 https://youtu.be/PF5GBT9oJDo\n'
-lineNo=24
-FILE='./conFil'
+new='\trewrite ^/redirect_me https://youtu.be/PF5GBT9oJDo permanent;'
+lineNo=47
+FILE='/etc/nginx/sites-available/default'
 sed -i "${lineNo}s~.*~${new}~" $FILE
+return       301 http://www.example.org$request_uri;
