@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Install nginx on the web server
+# Configure nginx redirect on the web server
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 service nginx start
 echo 'Hello World!' > /var/www/html/index.html
+new='\treturn 301 https://youtu.be/PF5GBT9oJDo$request_uri\n'
+lineNo=24
+FILE='/etc/nginx/sites-available/default'
+sed -i "${lineNo}s~.*~${new}~" $FILE
 service nginx start
