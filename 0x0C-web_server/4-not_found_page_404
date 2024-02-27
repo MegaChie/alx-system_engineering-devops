@@ -5,10 +5,15 @@ sudo apt upgrade -y
 sudo apt install nginx -y
 sudo service nginx start
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 new='\trewrite ^/redirect_me https://youtu.be/PF5GBT9oJDo permanent;'
+new2='\terror_page 404 /404.html;\n'
 lineNo=47
+lineNo2=24
 FILE='/etc/nginx/sites-available/default'
 FILE2='/etc/nginx/sites-enabled/default'
 sed -i "${lineNo}s~.*~${new}~" $FILE
 sed -i "${lineNo}s~.*~${new}~" $FILE2
+sed -i "${lineNo2}s~.*~${new2}~" $FILE
+sed -i "${lineNo2}s~.*~${new2}~" $FILE2
 sudo service nginx restart
