@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# comment text
-
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://youtu.be/PF5GBT9oJDo permanent;' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/page-404.html
-sed -i '/server_name _;/a error_page 404 /page-404.html;\nlocation = /page-404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-service nginx start
+# Configures redirect on nginx server
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install nginx -y
+sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+new='\trewrite ^/redirect_me https://youtu.be/PF5GBT9oJDo permanent;'
+lineNo=47
+FILE='/etc/nginx/sites-available/default'
+FILE2='/etc/nginx/sites-enabled/default'
+sed -i "${lineNo}s~.*~${new}~" $FILE
+sed -i "${lineNo}s~.*~${new}~" $FILE2
+sudo service nginx restart
