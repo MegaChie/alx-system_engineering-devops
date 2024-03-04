@@ -6,4 +6,5 @@ apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 sed -i "s~$original~$replace~g" /etc/nginx/sites-available/default
+sed -i "s~$original~$replace~g" /etc/nginx/sites-enabled/default
 service nginx start
