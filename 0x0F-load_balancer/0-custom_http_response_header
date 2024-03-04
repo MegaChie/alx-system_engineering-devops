@@ -4,7 +4,7 @@ apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 lineNo=24
-replace='\tadd_header X-Served-By $hostname\n;'
+replace="\tadd_header X-Served-By $hostname;\n"
 FILE='/etc/nginx/sites-available/default'
 FILE2='/etc/nginx/sites-enabled/default'
 sed -i "${lineNo}s~.*~${replace}~" $FILE
