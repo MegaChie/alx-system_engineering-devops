@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Install and configure HAproxy
-sudo apt-get -y install haproxy
+apt-get -y install haproxy=2.8.*
+apt-get update
+apt-get -y install haproxy
 echo '' >> /etc/haproxy/haproxy.cfg
 echo '' >> /etc/haproxy/haproxy.cfg
 file='/etc/haproxy/haproxy.cfg'
