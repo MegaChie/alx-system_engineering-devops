@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Listening on port 80
-file='/etc/nginx/sites-enabled/default'
-text='\tlisten 80 default_server;\n\tlisten [::]:80 default_server;'
-line=22
-sed -i "${line}s~.*~${text}~" $file
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+service nginx restart
+kill -9 "$(cat /run/nginx.pid)"
 service nginx restart
