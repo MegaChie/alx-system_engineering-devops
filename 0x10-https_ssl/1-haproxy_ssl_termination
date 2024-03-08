@@ -34,7 +34,7 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 frontend Mega
-        bind *:80 ssl crt /etc/letsencrypt/archive/www.acme-engineering.tech/www.acme-engineering.tech.pem
+        bind *:443 ssl crt /etc/letsencrypt/archive/www.acme-engineering.tech/www.acme-engineering.tech.pem
         default_backend MegaBackend
 
 backend MegaBackend
