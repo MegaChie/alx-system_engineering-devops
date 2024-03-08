@@ -4,7 +4,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install nginx -y
 sudo service nginx start
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 new='\trewrite ^/redirect_me https://youtu.be/PF5GBT9oJDo permanent;'
 new2='\terror_page 404 /404.html;\n'
