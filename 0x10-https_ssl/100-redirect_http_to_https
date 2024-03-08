@@ -34,10 +34,18 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 frontend Mega
-        bind *:80 ssl crt /etc/letsencrypt/archive/www.acme-engineering.tech/www.acme-engineering.tech.pem
+        bind *:80
+        bind *:443 ssl crt /etc/letsencrypt/archive/www.acme-engineering.tech/www.acme-engineering.tech.pem
+        mode http
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
         default_backend MegaBackend
+
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:8888
 
 backend MegaBackend
         balance roundrobin
-        server 174606-web-01 54.157.128.136:80 check
-        server 174606-web-02 34.227.91.77:80 check
+        mode http
+        server 174606-web-01 54.236.16.117:80 check
+        server 174606-web-02 54.157.156.176:80 check
