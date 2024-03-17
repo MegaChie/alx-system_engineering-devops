@@ -36,7 +36,6 @@ defaults
 frontend Mega
         bind *:80
         bind *:443 ssl crt /etc/letsencrypt/archive/www.acme-engineering.tech/www.acme-engineering.tech.pem
-        mode http
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend MegaBackend
