@@ -22,11 +22,11 @@ def API():
             name = polo["username"]
             return str(name)
 
-    #Fetchs the number of the users
+    # Fetchs the number of the users
     emplNumb = None
     with requests.get(emplUrl) as marko:
-            polo = marko.json()
-            emplNumb = len(polo)
+        polo = marko.json()
+        emplNumb = len(polo)
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
         polo = marko.json()
@@ -36,7 +36,7 @@ def API():
             for user in polo:
                 if user["userId"] == num:
                     undone.append({"username": emna(num),
-                                   "task": user["title"],
+                                   "task": user.get("title"),
                                    "completed": user.get("completed")})
             userdic[num] = undone
 
