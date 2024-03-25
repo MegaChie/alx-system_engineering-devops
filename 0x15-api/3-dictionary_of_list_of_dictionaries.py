@@ -16,7 +16,7 @@ def API():
         with requests.get(usersUrl) as marko:
             polo = marko.json()
             name = polo["username"]
-            return name
+            return str(name)
 
     # Getting tasks list
     with requests.get(tasksUrl) as marko:
