@@ -19,7 +19,7 @@ def API():
         # Fetches the required data and isolates the name
         with requests.get(usersUrl) as marko:
             polo = marko.json()
-            name = polo["username"]
+            name = polo.get("username")
             return str(name)
 
     # Fetchs the number of the users
@@ -36,8 +36,8 @@ def API():
             for user in polo:
                 if user["userId"] == num:
                     undone.append({"username": emna(num),
-                                   "task": user["title"],
-                                   "completed": user["completed"]})
+                                   "task": user.get("title"),
+                                   "completed": user.get("completed")})
             userdic[num] = undone
 
     # Writing file
