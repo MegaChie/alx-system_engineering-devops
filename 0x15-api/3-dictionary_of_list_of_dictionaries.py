@@ -36,8 +36,8 @@ def API():
             for user in polo:
                 if user["userId"] == num:
                     undone.append({"username": emna(num),
-                                   "task": user.get("title"),
-                                   "completed": user.get("completed")})
+                                   "task": user["title"],
+                                   "completed": user["completed"]})
             userdic[num] = undone
 
     # Writing file
