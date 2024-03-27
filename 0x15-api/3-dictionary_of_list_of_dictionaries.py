@@ -2,7 +2,6 @@
 """API usage"""
 import json
 import requests
-import sys
 
 
 def API():
