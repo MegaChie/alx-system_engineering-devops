@@ -10,16 +10,16 @@ def top_ten(subreddit):
     """
     # firstly, authenticate and get token
     client = "XVngJrvVrijzTzOU09512w"
-    clientKey = "h6FGkpwlvaqLY1RjMkr-fn4Yu26SNQ"
-    login = requests.auth.HTTPBasicAuth(client, clientKey)
+    client_key = "h6FGkpwlvaqLY1RjMkr-fn4Yu26SNQ"
+    login = requests.auth.HTTPBasicAuth(client, client_key)
     header = {"User-Agent": "Mega/0.0.2"}
-    sendData = {"grant_type": "client_credentials"}
+    send-data = {"grant_type": "client_credentials"}
     wanted = {"limit": 9}
     with requests.post("https://www.reddit.com/api/v1/access_token",
                        auth=login, headers=header,
-                       data=sendData) as authMarko:
-        poloKey = authMarko.json()
-    header["Authorization"] = "bearer {}".format(poloKey["access_token"])
+                       data=send-data) as auth_marko:
+        polo_key = auth_marko.json()
+    header["Authorization"] = "bearer {}".format(polo_key["access_token"])
 
     # using the token to access the API
     url = "https://oauth.reddit.com/r/{}/hot".format(subreddit)

@@ -16,9 +16,9 @@ def number_of_subscribers(subreddit):
     sent_data = {"grant_type": "client_credentials"}
     with requests.post("https://www.reddit.com/api/v1/access_token",
                        auth=login, headers=header,
-                       data=sent_data) as authMarko:
-        poloKey = authMarko.json()
-    header["Authorization"] = "bearer {}".format(poloKey["access_token"])
+                       data=sent_data) as auth_marko:
+        polo_key = auth_marko.json()
+    header["Authorization"] = "bearer {}".format(polo_key["access_token"])
 
     # using the token to access the API
     url = "https://oauth.reddit.com/r/{}/about".format(subreddit)
