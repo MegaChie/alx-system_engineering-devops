@@ -2,10 +2,9 @@
 """API usage"""
 import json
 import requests
-import sys
 
 
-def top_ten(subreddit=sys.argv[1]):
+def top_ten(subreddit):
     """
     Returns the number of subscribers for a given subreddit,
     or 0 if an invalid subreddit is given.
