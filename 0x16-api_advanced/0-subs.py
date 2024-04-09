@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """API usage"""
-import json
 import requests
 
 
