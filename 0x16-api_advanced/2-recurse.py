@@ -1,33 +1,45 @@
 #!/usr/bin/python3
-"""API usage"""
-import json
+"""
+Function that queries the Reddit API and prints
+the top ten hot posts of a subreddit
+"""
 import requests
 import sys
 
 
-def recurse(subreddit, hot_list=[]):
-    """
-    Returns the number of subscribers for a given subreddit,
-    or 0 if an invalid subreddit is given.
-    """
-    # firstly, authenticate and get token
-    client = "XVngJrvVrijzTzOU09512w"
-    clientKey = "h6FGkpwlvaqLY1RjMkr-fn4Yu26SNQ"
-    login = requests.auth.HTTPBasicAuth(client, clientKey)
-    header = {"User-Agent": "Mega/0.0.2"}
-    sendData = {"grant_type": "client_credentials"}
-    wanted = {"limit": 9}
-    with requests.post("https://www.reddit.com/api/v1/access_token",
-                       auth=login, headers=header,
-                       data=sendData) as authMarko:
-        poloKey = authMarko.json()
-    header["Authorization"] = "bearer {}".format(poloKey["access_token"])
+def add_title(hot_list, hot_posts):
+    """ Adds item into a list """
+    if len(hot_posts) == 0:
+        return
+    hot_list.append(hot_posts[0]['data']['title'])
+    hot_posts.pop(0)
+    add_title(hot_list, hot_posts)
 
-    # using the token to access the API
-    url = "https://oauth.reddit.com/r/{}/hot".format(subreddit)
-    with requests.get(url, headers=header, params=wanted) as marko:
-        if marko.status_code >= 300:
-            return None
-        polo = marko.json()
-    for hot in polo["data"]["children"]:
-        print(hot["data"]["title"])
+
+def recurse(subreddit, hot_list=[], after=None):
+    """ Queries to Reddit API """
+    u_agent = 'Mozilla/5.0'
+    headers = {
+        'User-Agent': u_agent
+    }
+
+    params = {
+        'after': after
+    }
+
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    res = requests.get(url,
+                       headers=headers,
+                       params=params,
+                       allow_redirects=False)
+
+    if res.status_code != 200:
+        return None
+
+    dic = res.json()
+    hot_posts = dic['data']['children']
+    add_title(hot_list, hot_posts)
+    after = dic['data']['after']
+    if not after:
+        return hot_list
+    return recurse(subreddit, hot_list=hot_list, after=after)
