@@ -13,11 +13,11 @@ def top_ten(subreddit):
     client_key = "h6FGkpwlvaqLY1RjMkr-fn4Yu26SNQ"
     login = requests.auth.HTTPBasicAuth(client, client_key)
     header = {"User-Agent": "Mega/0.0.2"}
-    send-data = {"grant_type": "client_credentials"}
+    send_data = {"grant_type": "client_credentials"}
     wanted = {"limit": 9}
     with requests.post("https://www.reddit.com/api/v1/access_token",
                        auth=login, headers=header,
-                       data=send-data) as auth_marko:
+                       data=send_data) as auth_marko:
         polo_key = auth_marko.json()
     header["Authorization"] = "bearer {}".format(polo_key["access_token"])
 
