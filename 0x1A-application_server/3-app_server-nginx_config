@@ -53,6 +53,7 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
+	# Task 2
         location /airbnb-onepage/ {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
@@ -60,6 +61,7 @@ server {
 		proxy_pass http://localhost:5000/airbnb-onepage/;
         }
 
+	# Task 3
         location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
                 include proxy_params;
                 proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;

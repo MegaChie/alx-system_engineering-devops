@@ -53,11 +53,12 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
+	# Task 2
         location /airbnb-onepage/ {
                 # First attempt to serve request as file, then
+               
                 # as directory, then fall back to displaying a 404.
-                include proxy_params;
-		proxy_pass http://localhost:5000/airbnb-onepage/;
+                include proxy_param	proxy_pass http://localhost:5000/airbnb-onepage/;
         }
 
 	# pass PHP scripts to FastCGI server
