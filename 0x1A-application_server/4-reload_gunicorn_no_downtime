@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Restore the server back to its working state
+PID=$(pgrep gunicorn | head -n 1)
+kill -HUP "$PID"
